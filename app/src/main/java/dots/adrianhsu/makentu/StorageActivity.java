@@ -38,6 +38,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import android.util.Log;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
+
+
+
 public class StorageActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "StorageActivity";
@@ -165,8 +171,12 @@ public class StorageActivity extends AppCompatActivity implements View.OnClickLi
 
     private void downloadToLocalFile(StorageReference fileRef) {
         Log.d(TAG, "downloadToLocalFile: fff");
-        if (fileRef == null)
-            fileRef = imageReference.child("cover.jpg");
+//        if (fileRef == null)
+//            fileRef = imageReference.child("cover.jpg");
+
+        fileRef = imageReference.child(edtFileName.getText().toString());
+        if(fileRef == null)
+            return;
 
         progressDialog.setTitle("Downloading...");
         progressDialog.setMessage(null);
@@ -241,5 +251,11 @@ public class StorageActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         return true;
+    }
+    public class MyFirebaseMessagingService extends FirebaseMessagingService{
+        @Override
+        public void onMessageReceived(RemoteMessage remoteMessage) {
+            Log.d("FCM", "onMessageReceived:"+remoteMessage.getFrom());
+        }
     }
 }
