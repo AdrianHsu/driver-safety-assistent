@@ -187,6 +187,9 @@ body p a {
   color: #ffffff;
   font-size: 80px;
 }
+body h1 {
+  color: #ffffff;
+}
 
 </style>
 <body id=body>
@@ -200,8 +203,12 @@ body p a {
 
 
 <p> MakeNTU | 學妹助手</a></p>
+<h1>學長，有什麼能幫您服務的嗎～～</h1>
 <script>
     // JS by Matan Yossef (https://codepen.io/matanyo)
+var audio = new Audio('./newbie.mp3');
+audio.play();
+
 var circle = document.querySelector(".circle");
 var sceneDuration = 650;
 var listOfCssClasses = ["six", "two", "three", "four", "five", "six", "zero"];

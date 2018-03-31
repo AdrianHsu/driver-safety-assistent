@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MakeNTU | 地圖與街景</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map, #pano {
+        float: left;
+        height: 100%;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="pano"></div>
+    <script>
+
+      function initialize() {
+        var fenway = {lat: 25.0453442, lng: 121.5312085};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: fenway,
+          zoom: 14
+        });
+        var panorama = new google.maps.StreetViewPanorama(
+            document.getElementById('pano'), {
+              position: fenway,
+              pov: {
+                heading: 34,
+                pitch: 10
+              }
+            });
+        map.setStreetView(panorama);
+        myFunction();
+      }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCozc3WIJ0N5ka4Yv4Ah9hre3iTADMu6EI
+&callback=initialize">
+    </script>
+    <script type="text/javascript">
+      function myFunction() {
+    setInterval(function(){ console.log("Hello"); location.reload() ; }, 3000);
+}
+    </script>
+  </body>
+</html>
