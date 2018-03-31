@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity implements
         findViewById(R.id.btn_email_create_account).setOnClickListener(this);
         findViewById(R.id.btn_sign_out).setOnClickListener(this);
         findViewById(R.id.btn_test_message).setOnClickListener(this);
+        setTitle("MakeNTU | 電子信箱登入");
 
         edtEmail.setText("adrianhsu1995@gmail.com");
         edtPassword.setText("rebirth1108");
