@@ -7,6 +7,12 @@ const spawn = require('child-process-promise').spawn;
 const path = require('path');
 const os = require('os');
 const fs = require('fs');
+
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase);
+
+const deviceToken = functions.config().dev_motivator.device_token;
+
 // [END import]
 
 // [START generateThumbnail]
@@ -18,6 +24,14 @@ const fs = require('fs');
 exports.generateThumbnail = functions.storage.object().onChange((event) => {
   // [END generateThumbnailTrigger]
   // [START eventAttributes]
+  const payload = {
+    notification: {
+      title: '你的車被偷了！！！！！！',
+      body: '啊啊啊是誰偷你的車 ლ(ﾟдﾟლ)'
+    },
+  };
+  admin.messaging().sendToDevice(deviceToken, payload);
+
   const object = event.data; // The Storage object.
 
   const fileBucket = object.bucket; // The Storage bucket that contains the file.
