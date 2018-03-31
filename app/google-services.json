@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "483230937571",
+    "firebase_url": "https://makentu-c3a48.firebaseio.com",
+    "project_id": "makentu-c3a48",
+    "storage_bucket": "makentu-c3a48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483230937571:android:2e31d787a6f0d54b",
+        "android_client_info": {
+          "package_name": "dots.adrianhsu.makentu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483230937571-op1kllr17ascq87jvb0l24vg1gc0q6kf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXFsY5lXF3CEhkfON47XlRiILNkfZPsB0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
