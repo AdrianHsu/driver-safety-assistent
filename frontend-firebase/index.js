@@ -1,6 +1,5 @@
-var http = require('http');
-var fileSystem = require('fs');
 var firebase = require("firebase");
+
 
 var config = {
     apiKey: "AIzaSyBbcQLEz3xXtBnPu_FQdmC0MdX-SYeo2SQ",
@@ -11,26 +10,22 @@ var config = {
 };
 firebase.initializeApp(config);
 
+
+var express = require('express');
+var app = express();
+var dataUpdated = 0;
+
+app.get('/', (req, res) => {
+    console.log('dd: ' + dataUpdated);
+    if(dataUpdated % 2 === 1) res.sendfile('welcome.html');
+    else res.sendfile('index.html');
+});
+app.listen(3000, () => console.log('Example app listening on port 3000!'))
+
 var database = firebase.database();
-var starCountRef = firebase.database().ref('ee/');
+var starCountRef = firebase.database().ref('sleep/');
 starCountRef.on('value', function(snapshot) {
-    console.log(snapshot.val());    
+    console.log(snapshot.val()); 
+    dataUpdated++;
+    console.log('dat: ' + dataUpdated);
 });
-
-var server = http.createServer(function(req, resp){
-    fileSystem.readFile('./index.html', function(error, fileContent){
-        if(error){
-            resp.writeHead(500, {'Content-Type': 'text/plain'});
-            resp.end('Error');
-        }
-        else{
-            resp.writeHead(200, {'Content-Type': 'text/html'});
-            resp.write(fileContent);
-            resp.end();
-        }
-    });
-});
-
-server.listen(8080);
-
-console.log('Listening at: localhost:8080');

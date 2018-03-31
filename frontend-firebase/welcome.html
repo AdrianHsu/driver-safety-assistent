@@ -1,0 +1,233 @@
+<html>
+<head>
+    <meta http-equiv="refresh" content="7">
+</head>
+<style>
+.circle, .line-container, body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.circle {
+  background: #ffffff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 30px 55px -5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 30px 55px -5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+.circle.six {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.line-container {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-transition: -webkit-transform 0.35s ease;
+  transition: -webkit-transform 0.35s ease;
+  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, -webkit-transform 0.35s ease;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+.two .line-container {
+  -webkit-transform: rotateZ(-90deg);
+          transform: rotateZ(-90deg);
+}
+.five .line-container {
+  -webkit-transform: rotateZ(136deg);
+          transform: rotateZ(136deg);
+}
+.six .line-container {
+  opacity: 0;
+  -webkit-transform: rotateZ(360deg);
+          transform: rotateZ(360deg);
+}
+
+span {
+  width: 19px;
+  height: 3px;
+  -webkit-animation: colors 3.9s infinite;
+          animation: colors 3.9s infinite;
+  border-radius: 4px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  will-change: transform;
+}
+.two span:nth-child(1) {
+  width: 10px;
+}
+.three span:nth-child(1) {
+  width: 13px;
+  -webkit-transform: rotateZ(-36deg) translate(-4px, 2px);
+          transform: rotateZ(-36deg) translate(-4px, 2px);
+}
+.four span:nth-child(1), .five span:nth-child(1) {
+  width: 19px;
+  -webkit-transform: rotateZ(90deg) translate(7.5px, 0px);
+          transform: rotateZ(90deg) translate(7.5px, 0px);
+}
+span:nth-child(2) {
+  width: 10px;
+  margin: 4px 0;
+}
+.two span:nth-child(2) {
+  width: 19px;
+}
+.three span:nth-child(2) {
+  width: 19px;
+  -webkit-transform: rotateZ(-360deg);
+          transform: rotateZ(-360deg);
+}
+.four span:nth-child(2), .five span:nth-child(2) {
+  width: 19px;
+}
+.two span:nth-child(3) {
+  width: 14px;
+}
+.three span:nth-child(3) {
+  width: 13px;
+  -webkit-transform: rotateZ(36deg) translate(-4px, -2px);
+          transform: rotateZ(36deg) translate(-4px, -2px);
+}
+.four span:nth-child(3), .five span:nth-child(3), .six span:nth-child(3) {
+  opacity: 0;
+}
+
+@-webkit-keyframes colors {
+  0% {
+    background: #7cc9dc;
+  }
+  16.6666666667% {
+    background: #79c26e;
+  }
+  33.3333333333% {
+    background: #f48d41;
+  }
+  50% {
+    background: #c062a5;
+  }
+  66.6666666667% {
+    background: #479aa9;
+  }
+  83.3333333333% {
+    background: #ec68a1;
+  }
+  100% {
+    background: #7cc9dc;
+  }
+}
+
+@keyframes colors {
+  0% {
+    background: #7cc9dc;
+  }
+  16.6666666667% {
+    background: #79c26e;
+  }
+  33.3333333333% {
+    background: #f48d41;
+  }
+  50% {
+    background: #c062a5;
+  }
+  66.6666666667% {
+    background: #479aa9;
+  }
+  83.3333333333% {
+    background: #ec68a1;
+  }
+  100% {
+    background: #7cc9dc;
+  }
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-animation: colors 3.9s infinite;
+          animation: colors 3.9s infinite;
+  overflow: hidden;
+}
+body p {
+  margin-top: 100px;
+  color: #ffffff;
+  font-size: 80px;
+  width: auto;
+}
+body p a {
+  color: #ffffff;
+  font-size: 80px;
+}
+
+</style>
+<body id=body>
+    <div class="circle">
+    <div class="line-container">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+
+<p> MakeNTU | 學妹助手</a></p>
+<script>
+    // JS by Matan Yossef (https://codepen.io/matanyo)
+var circle = document.querySelector(".circle");
+var sceneDuration = 650;
+var listOfCssClasses = ["six", "two", "three", "four", "five", "six", "zero"];
+var cssClasses = function (element, removeClass, addClass) { return function () {
+    element.classList.remove(removeClass);
+    element.classList.add(addClass);
+}; };
+var switchCase = function () {
+    listOfCssClasses.forEach(function (cssClass, index) {
+        var nextIndex = index + 1;
+        if (!nextIndex)
+            return;
+        setTimeout(cssClasses(circle, cssClass, listOfCssClasses[nextIndex]), sceneDuration * nextIndex);
+    });
+};
+switchCase();
+var timeOut = function () {
+    setTimeout(function () {
+        switchCase();
+        timeOut();
+    }, sceneDuration * listOfCssClasses.length + 1);
+};
+timeOut();
+
+</script>
+
+</body>
+
+</html>
