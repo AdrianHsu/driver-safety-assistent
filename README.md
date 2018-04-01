@@ -3,7 +3,7 @@
 * MakeNTU 2018 台大電機創客松
 
 
-* 2018.4.1
+* 2018.3.30 - 2018.4.1
 * Best Choice Award 最佳人氣獎 ( 10000$ TWD )
 
 ## Members
